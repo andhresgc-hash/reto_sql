@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS empresa_db;
+USE empresa_db;
+
+CREATE TABLE Departamento (
+    DeptID INT AUTO_INCREMENT PRIMARY KEY,
+    NombreDepto VARCHAR(100) NOT NULL,
+    Ubicacion VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Empleado (
+    EmpID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL,
+    Apellido VARCHAR(50) NOT NULL,
+    Edad INT NOT NULL,
+    Salario DECIMAL(10, 2) NOT NULL,
+    DeptID INT NOT NULL,
+    CONSTRAINT fk_departamento FOREIGN KEY (DeptID) REFERENCES Departamento(DeptID)
+);
